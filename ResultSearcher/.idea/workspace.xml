@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="search_result" targetName="search_result" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bbd9f072-7409-43bc-95b9-ee51b5b0af40" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ids_whole.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-33053" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flask/backend.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1656">
+              <caret line="46" column="50" lean-forward="true" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../2018年4月文件/sphinxapi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-17280" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../civil_graph/d3js_flask/server.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../civil_graph/2utf8.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../civil_graph/load_graph.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-540" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../civil_graph/construct_nodes_json.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-207" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../civil_graph/construct_nodes_and_edges.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1301" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../civil_graph/build_graph_2/redundancy/prepare_for_embedding.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search_result.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-125">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../Searcher/search.cpp" />
+        <option value="$PROJECT_DIR$/search_result.h" />
+        <option value="$PROJECT_DIR$/search_result.cpp" />
+        <option value="$PROJECT_DIR$/search.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/ajax_try.html" />
+        <option value="$PROJECT_DIR$/flask/main.cpp" />
+        <option value="$PROJECT_DIR$/flask/templates/result_graph.html" />
+        <option value="$PROJECT_DIR$/../moban2815/index.html" />
+        <option value="$PROJECT_DIR$/flask/templates/main/index.html" />
+        <option value="$PROJECT_DIR$/flask/backend.py" />
+        <option value="$PROJECT_DIR$/flask/templates/ajax_try.html" />
+        <option value="$PROJECT_DIR$/flask/templates/result的副本.html" />
+        <option value="$PROJECT_DIR$/flask/templates/result.html" />
+        <option value="$PROJECT_DIR$/../sphinx.conf" />
+        <option value="$PROJECT_DIR$/flask/templates/index.html" />
+        <option value="$PROJECT_DIR$/../../calculator/cosine.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="28" />
+    <option name="y" value="29" />
+    <option name="width" value="1249" />
+    <option name="height" value="672" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_result" RUN_TARGET_NAME="search_result" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+    </configuration>
+    <configuration name="search_result" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="search_result" TARGET_NAME="search_result" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_result" RUN_TARGET_NAME="search_result">
+      <envs />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbd9f072-7409-43bc-95b9-ee51b5b0af40" name="Default" comment="" />
+      <created>1522071659044</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1522071659044</updated>
+      <workItem from="1522071660656" duration="35376000" />
+      <workItem from="1522160739571" duration="5150000" />
+      <workItem from="1522170841418" duration="374000" />
+      <workItem from="1522172903901" duration="21853000" />
+      <workItem from="1522399942829" duration="2679000" />
+      <workItem from="1522414129338" duration="1223000" />
+      <workItem from="1522418795001" duration="34000" />
+      <workItem from="1522418867673" duration="256000" />
+      <workItem from="1522419867036" duration="335000" />
+      <workItem from="1522422872694" duration="3913000" />
+      <workItem from="1522430867169" duration="1939000" />
+      <workItem from="1523240565426" duration="508000" />
+      <workItem from="1526454432685" duration="11879000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="94874000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.100105375" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.026666667" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CMake" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///usr/include/string.h" />
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/ostream" />
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/string" />
+    <entry file="file://$PROJECT_DIR$/../Searcher/search.cpp" />
+    <entry file="file://$PROJECT_DIR$/search_result.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/__tree" />
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/utility" />
+    <entry file="file://$PROJECT_DIR$/ajax_try.html" />
+    <entry file="file://$PROJECT_DIR$/../moban2815/index.html" />
+    <entry file="file://$PROJECT_DIR$/flask/templates/result_graph.html" />
+    <entry file="file://$PROJECT_DIR$/flask/templates/main/index.html" />
+    <entry file="file://$PROJECT_DIR$/flask/templates/result的副本.html" />
+    <entry file="file://$PROJECT_DIR$/flask/templates/ajax_try.html" />
+    <entry file="file://$PROJECT_DIR$/flask/templates/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="107" column="7" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sphinx.conf" />
+    <entry file="file://$PROJECT_DIR$/flask/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4080">
+          <caret line="272" column="39" selection-start-line="272" selection-start-column="39" selection-end-line="272" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2535">
+          <caret line="169" column="48" selection-start-line="169" selection-start-column="48" selection-end-line="169" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../calculator/1478797.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3690">
+          <caret line="246" column="26" selection-start-line="246" selection-start-column="26" selection-end-line="246" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../calculator/cosine.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/construct_search_map.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9701">
+          <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search_result.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ids_whole.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33053" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../2018年4月文件/sphinxapi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17280" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../civil_graph/load_graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../civil_graph/construct_nodes_json.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-207" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../civil_graph/construct_nodes_and_edges.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1301" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../civil_graph/build_graph_2/redundancy/prepare_for_embedding.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../civil_graph/d3js_flask/server.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../civil_graph/2utf8.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/backend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1656">
+          <caret line="46" column="50" lean-forward="true" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

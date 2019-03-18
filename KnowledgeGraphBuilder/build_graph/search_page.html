@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head><title>搜索页面</title></head>
+
+<body>
+    <head>搜索实体关系子图</head>
+    <form>
+        <input type = 'text' name = 'name'>
+    </form>
+    <button type="button" onclick="loadJSON()">搜索</button>
+    <p>
+        搜索结果<br/><span id = 'result'></span>
+    </p>
+    <script>
+        function loadJSON()
+        {
+            var xmlhttp;
+            var txt,x,i;
+            if (window.XMLHttpRequest)
+            {
+                // IEJson7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    xmljson=xmlhttp.responseXML;
+                    txt="";
+                    x=xmljson.getElementsByTagName("ARTIST");
+                    for (i=0;i<x.length;i++)
+                    {
+                        txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+                    }
+                    document.getElementById("result").innerHTML=txt;
+                }
+            }
+            xmlhttp.open("GET","search_result.json",true);
+            xmlhttp.send();
+        }
+    </script>
+</body>

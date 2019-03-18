@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/octopolugal/Desktop/EMNLP/search_result/main.cpp
+iostream
+-
+algorithm
+-
+fstream
+-
+vector
+-
+map
+-
+

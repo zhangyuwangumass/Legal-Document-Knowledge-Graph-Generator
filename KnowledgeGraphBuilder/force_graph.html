@@ -1,0 +1,122 @@
+<html>  
+  <head>  
+        <meta charset="utf-8">  
+        <title>法律实体关系图</title>
+  </head> 
+
+<style>
+
+
+</style>
+    <body>  
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>  
+        <script>		   
+					   
+		var nodes = [{type: 1, name: "（2015）开江民初字第1372号"}, {type: 3, name: "机构   汤某某"}, {type: 4, name: "当事人   张某甲"}, {type: 6, name: "代理律师   贺余良"}]
+
+		var edges = [{source: 0, rela: "", target: 1}, {source: 1, rela: "", target: 3}, {source: 1, rela: "起诉", target: 2}, {source: 0, rela: "", target: 2}, {source: 2, rela: "", target: 1}, {source: 0, rela: "", target: 3}, {source: 3, rela: "委托", target: 1}]
+		var width = 2000;
+		var height = 1000;
+		
+		
+		var svg = d3.select("body")
+					.append("svg")
+					.attr("width",width)
+					.attr("height",height);
+		
+		var force = d3.layout.force()
+				.nodes(nodes)		//指定节点数组
+				.links(edges)		//指定连线数组
+				.size([width,height])	//指定范围
+				.linkDistance(150)	//指定连线长度
+				.charge(-400);	//相互之间的作用力
+
+		force.start();	//开始作用
+
+		console.log(nodes);
+		console.log(edges);
+		
+		//添加连线
+		var svg_edges = svg.selectAll("line")
+							.data(edges)
+							.enter()
+							.append("line")
+							.style("stroke","#ccc")
+							.style("stroke-width",1);
+
+        var svg_edgetexts = svg.selectAll("tag")
+            .data(edges)
+            .enter()
+            .append("tag")
+            .style("fill", "black")
+            .attr("dx", 20)
+            .attr("dy", 8)
+            .text(function(d){
+                return d.rela;
+            });
+
+		var color = d3.scale.category20();
+				
+		//添加节点			
+		var svg_nodes = svg.selectAll("circle")
+							.data(nodes)
+							.enter()
+							.append("circle")
+							.attr("r",20)
+							.style("fill",function(d,i){
+								return color(d.type);
+							})
+							.call(force.drag);	//使得节点能够拖动
+
+		//添加描述节点的文字
+
+		var svg_texts = svg.selectAll("text")
+							.data(nodes)
+							.enter()
+							.append("text")
+							.style("fill", "black")
+							.attr("dx", 20)
+							.attr("dy", 8)
+							.text(function(d){
+								return d.name;
+							});
+
+					
+
+		force.on("tick", function(){	//对于每一个时间间隔
+		
+			 //更新连线坐标
+			 svg_edges.attr("x1",function(d){ return d.source.x; })
+			 		.attr("y1",function(d){ return d.source.y; })
+			 		.attr("x2",function(d){ return d.target.x; })
+			 		.attr("y2",function(d){ return d.target.y; });
+
+			 /**svg_edgetexts.attr( "x",function(d){ return 0.5*(d.source.x+d.target.x) - 20; })
+                 .attr("y",function(d){ return 0.5*(d.source.y+d.target.y); })
+                 /**.attr('transform',function(d,i){
+                 if (d.target.x<d.source.x){
+                     bbox = this.getBBox();
+                     rx = bbox.x+bbox.width/2;
+                     ry = bbox.y+bbox.height/2;
+                     return 'rotate(180 '+rx+' '+ry+')';
+                 }
+                 else {
+                     return 'rotate(0)';
+                 }
+             });**/
+			 
+			 //更新节点坐标
+			 svg_nodes.attr("cx",function(d){ return d.x; })
+			 		.attr("cy",function(d){ return d.y; });
+
+			 //更新文字坐标
+
+			 svg_texts.attr("x", function(d){ return d.x; })
+			 	.attr("y", function(d){ return d.y; });
+
+		});
+		  
+        </script>  
+		
+    </body>  
+</html>  

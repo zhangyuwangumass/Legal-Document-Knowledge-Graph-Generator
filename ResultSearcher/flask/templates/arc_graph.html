@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>test4</title>
+    <style>
+        path.link {
+            fill: none;
+            stroke: #666;
+            stroke-width: 1.5px;
+        }
+
+        marker#licensing {
+            fill: green;
+        }
+
+        path.link.licensing {
+            stroke: green;
+        }
+
+        path.link.resolved {
+            stroke-dasharray: 0,2 1;
+        }
+
+        circle {
+            fill: #ccc;
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+
+        text {
+            font: 10px sans-serif;
+            pointer-events: none;
+        }
+
+        text.shadow {
+            stroke: #fff;
+            stroke-width: 3px;
+            stroke-opacity: .8;
+        }
+    </style>
+</head>
+<body>
+<div id="chart"></div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript">
+    var index = 0;
+    var width = 1140,
+        height = 1000;
+    var links = [{source:"曾新华", source_id:"4_547", target:"深圳市佳顺通运输实业有限公司", target_id:"3_546", rela:"代表", edge_color:4, group:0}, {source:"曾新华", source_id:"4_547", target:"（2015）深宝法民二初字第4335号", target_id:"0_75", rela:"代表人", edge_color:1, group:0}, {source:"深圳市佳顺通运输实业有限公司", source_id:"3_546", target:"（2015）深宝法民二初字第4335号", target_id:"0_75", rela:"当事人", edge_color:1, group:0}, {source:"深圳市佳顺通运输实业有限公司", source_id:"3_546", target:"深圳市", target_id:"1_36", rela:"住所地", edge_color:6, group:0}, {source:"深圳市佳顺通运输实业有限公司", source_id:"3_546", target:"丰田汽车金融（中国）有限公司", target_id:"3_543", rela:"被诉", edge_color:2, group:0}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"丰田汽车金融（中国）有限公司", target_id:"3_543", rela:"当事人", edge_color:1, group:0}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"刘保仲", target_id:"4_545", rela:"代理人", edge_color:1, group:0}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"广东省深圳市宝安区人民法院", target_id:"8_43", rela:"法院", edge_color:1, group:0}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"唐文", target_id:"4_544", rela:"代理人", edge_color:1, group:0}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"黄小华", target_id:"7_551", rela:"审判员", edge_color:1, group:0}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"孔卫新", target_id:"7_550", rela:"审判长", edge_color:1, group:0}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"黄惠霞", target_id:"4_549", rela:"当事人", edge_color:1, group:0}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"曾新华", target_id:"4_548", rela:"当事人", edge_color:1, group:0}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"刘保仲", target_id:"4_545", rela:"委托（被代理）", edge_color:4, group:0}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"唐文", target_id:"4_544", rela:"委托（被代理）", edge_color:4, group:0}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"黄惠霞", target_id:"4_549", rela:"起诉", edge_color:2, group:0}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"曾新华", target_id:"4_548", rela:"起诉", edge_color:2, group:0}, {source:"曾新华", source_id:"4_548", target:"丰田汽车金融（中国）有限公司", target_id:"3_543", rela:"被诉", edge_color:2, group:1}, {source:"曾新华", source_id:"4_548", target:"（2015）深宝法民二初字第4335号", target_id:"0_75", rela:"当事人", edge_color:1, group:1}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"（2015）深宝法民二初字第4335号", target_id:"0_75", rela:"当事人", edge_color:1, group:1}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"刘保仲", target_id:"4_545", rela:"委托（被代理）", edge_color:4, group:1}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"深圳市佳顺通运输实业有限公司", target_id:"3_546", rela:"起诉", edge_color:2, group:1}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"唐文", target_id:"4_544", rela:"委托（被代理）", edge_color:4, group:1}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"黄惠霞", target_id:"4_549", rela:"起诉", edge_color:2, group:1}, {source:"丰田汽车金融（中国）有限公司", source_id:"3_543", target:"北京市", target_id:"1_29", rela:"住所地", edge_color:6, group:1}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"刘保仲", target_id:"4_545", rela:"代理人", edge_color:1, group:1}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"深圳市佳顺通运输实业有限公司", target_id:"3_546", rela:"当事人", edge_color:1, group:1}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"唐文", target_id:"4_544", rela:"代理人", edge_color:1, group:1}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"黄惠霞", target_id:"4_549", rela:"当事人", edge_color:1, group:1}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"广东省深圳市宝安区人民法院", target_id:"8_43", rela:"法院", edge_color:1, group:1}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"曾新华", target_id:"4_547", rela:"代表人", edge_color:1, group:1}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"黄小华", target_id:"7_551", rela:"审判员", edge_color:1, group:1}, {source:"（2015）深宝法民二初字第4335号", source_id:"0_75", target:"孔卫新", target_id:"7_550", rela:"审判长", edge_color:1, group:1}, {source:"深圳市佳顺通运输实业有限公司", source_id:"3_546", target:"曾新华", target_id:"4_547", rela:"被代表", edge_color:4, group:1}];
+
+
+    //关系分组
+    var linkGroup = {};
+    //对连接线进行统计和分组，不区分连接线的方向，只要属于同两个实体，即认为是同一组
+    var linkmap = {}
+    for(var i=0; i<links.length; i++){
+        var key = links[i].source<links[i].target?links[i].source+':'+links[i].target:links[i].target+':'+links[i].source;
+        if(!linkmap.hasOwnProperty(key)){
+            linkmap[key] = 0;
+        }
+        linkmap[key]+=1;
+        if(!linkGroup.hasOwnProperty(key)){
+            linkGroup[key]=[];
+        }
+        linkGroup[key].push(links[i]);
+    }
+    //为每一条连接线分配size属性，同时对每一组连接线进行编号
+    for(var i=0; i<links.length; i++){
+        var key = links[i].source<links[i].target?links[i].source+':'+links[i].target:links[i].target+':'+links[i].source;
+        links[i].size = linkmap[key];
+        //同一组的关系进行编号
+        var group = linkGroup[key];
+        var keyPair = key.split(':');
+        var type = 'noself';//标示该组关系是指向两个不同实体还是同一个实体
+        if(keyPair[0]==keyPair[1]){
+            type = 'self';
+        }
+        //给节点分配编号
+        setLinkNumber(group,type);
+    }
+    console.log(links);
+
+    var nodes = {};
+
+    // Compute the distinct nodes from the links.
+    links.forEach(function(link) {
+        link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+        link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+    });
+
+    var force = d3.layout.force()
+        .nodes(d3.values(nodes))
+        .links(links)
+        .size([width, height])
+        .linkDistance(600)
+        .charge(-300)
+        .on("tick", tick)
+        .start();
+
+    var svg = d3.select("body").append("svg:svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // Per-type markers, as they don't inherit styles.
+    var marker=
+        svg.append("marker")
+        //.attr("id", function(d) { return d; })
+            .attr("id", "resolved")
+            //.attr("markerUnits","strokeWidth")//设置为strokeWidth箭头会随着线的粗细发生变化
+            .attr("markerUnits","userSpaceOnUse")
+            .attr("viewBox", "0 -5 10 10")//坐标系的区域
+            .attr("refX",32)//箭头坐标
+            .attr("refY", -1)
+            .attr("markerWidth", 12)//标识的大小
+            .attr("markerHeight", 12)
+            .attr("orient", "auto")//绘制方向，可设定为：auto（自动确认方向）和 角度值
+            .attr("stroke-width",2)//箭头宽度
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")//箭头的路径
+            .attr('fill','#000000');//箭头颜色
+
+    var path = svg.append("svg:g").selectAll("path")
+        .data(force.links())
+        .enter().append("svg:path")
+        .attr("class", function(d) { return "link " + d.type; })
+        .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+    var circle = svg.append("svg:g").selectAll("circle")
+        .data(force.nodes())
+        .enter().append("svg:circle")
+        .attr("r", 20)
+        .call(force.drag);
+
+    var text = svg.append("svg:g").selectAll("g")
+        .data(force.nodes())
+        .enter().append("svg:g");
+
+    // A copy of the text with a thick white stroke for legibility.
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .attr("class", "shadow")
+        .text(function(d) { return d.name; });
+
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .text(function(d) { return d.name; });
+
+    // Use elliptical arc path segments to doubly-encode directionality.
+    function tick() {
+        path.attr("d", function(d) {
+            //如果连接线连接的是同一个实体，则对path属性进行调整，绘制的圆弧属于长圆弧，同时对终点坐标进行微调，避免因坐标一致导致弧无法绘制
+            if(d.target==d.source){
+                dr = 30/d.linknum;
+                return"M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 1,1 " + d.target.x + "," + (d.target.y+1);
+            }else if(d.size%2!=0 && d.linknum==1){//如果两个节点之间的连接线数量为奇数条，则设置编号为1的连接线为直线，其他连接线会均分在两边
+                return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
+            }
+            //根据连接线编号值来动态确定该条椭圆弧线的长半轴和短半轴，当两者一致时绘制的是圆弧
+            //注意A属性后面的参数，前两个为长半轴和短半轴，第三个默认为0，第四个表示弧度大于180度则为1，小于则为0，这在绘制连接到相同节点的连接线时用到；第五个参数，0表示正角，1表示负角，即用来控制弧形凹凸的方向。本文正是结合编号的正负情况来控制该条连接线的凹凸方向，从而达到连接线对称的效果
+            var curve=1.5;
+            var homogeneous=1.2;
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx*dx+dy*dy)*(d.linknum+homogeneous)/(curve*homogeneous);
+            //当节点编号为负数时，对弧形进行反向凹凸，达到对称效果
+            if(d.linknum<0){
+                dr = Math.sqrt(dx*dx+dy*dy)*(-1*d.linknum+homogeneous)/(curve*homogeneous);
+                return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,0 " + d.target.x + "," + d.target.y;
+            }
+            return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+        });
+
+        circle.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    }
+
+    function setLinkNumber(group,type){
+        if(group.length==0) return;
+        //对该分组内的关系按照方向进行分类，此处根据连接的实体ASCII值大小分成两部分
+        var linksA = [], linksB = [];
+        for(var i = 0;i<group.length;i++){
+            var link = group[i];
+            if(link.source < link.target){
+                linksA.push(link);
+            }else{
+                linksB.push(link);
+            }
+        }
+        //确定关系最大编号。为了使得连接两个实体的关系曲线呈现对称，根据关系数量奇偶性进行平分。
+        //特殊情况：当关系都是连接到同一个实体时，不平分
+        var maxLinkNumber = 0;
+        if(type=='self'){
+            maxLinkNumber = group.length;
+        }else{
+            maxLinkNumber = group.length%2==0?group.length/2:(group.length+1)/2;
+        }
+        //如果两个方向的关系数量一样多，直接分别设置编号即可
+        if(linksA.length==linksB.length){
+            var startLinkNumber = 1;
+            for(var i=0;i<linksA.length;i++){
+                linksA[i].linknum = startLinkNumber++;
+            }
+            startLinkNumber = 1;
+            for(var i=0;i<linksB.length;i++){
+                linksB[i].linknum = startLinkNumber++;
+            }
+        }else{//当两个方向的关系数量不对等时，先对数量少的那组关系从最大编号值进行逆序编号，然后在对另一组数量多的关系从编号1一直编号到最大编号，再对剩余关系进行负编号
+            //如果抛开负号，可以发现，最终所有关系的编号序列一定是对称的（对称是为了保证后续绘图时曲线的弯曲程度也是对称的）
+            var biggerLinks,smallerLinks;
+            if(linksA.length>linksB.length){
+                biggerLinks = linksA;
+                smallerLinks = linksB;
+            }else{
+                biggerLinks = linksB;
+                smallerLinks = linksA;
+            }
+
+            var startLinkNumber = maxLinkNumber;
+            for(var i=0;i<smallerLinks.length;i++){
+                smallerLinks[i].linknum = startLinkNumber--;
+            }
+            var tmpNumber = startLinkNumber;
+
+            startLinkNumber = 1;
+            var p = 0;
+            while(startLinkNumber<=maxLinkNumber){
+                biggerLinks[p++].linknum = startLinkNumber++;
+            }
+            //开始负编号
+            startLinkNumber = 0-tmpNumber;
+            for(var i=p;i<biggerLinks.length;i++){
+                biggerLinks[i].linknum = startLinkNumber++;
+            }
+        }
+    }
+</script>
+</body>
+</html>

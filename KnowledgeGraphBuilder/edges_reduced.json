@@ -1,0 +1,1 @@
+[{source: 0, rela: "", target: 1}, {source: 1, rela: "", target: 3}, {source: 1, rela: "起诉", target: 2}, {source: 0, rela: "", target: 2}, {source: 2, rela: "", target: 1}, {source: 0, rela: "", target: 3}, {source: 3, rela: "委托", target: 1}]

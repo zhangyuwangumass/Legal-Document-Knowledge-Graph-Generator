@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    {"group": "0", "id": "0"},
+    {"group": "0", "id": "1"},
+    {"group": "0", "id": "2"},
+    {"group": "3", "id": "3_0"},
+    {"group": "3", "id": "3_5"},
+    {"group": "3", "id": "3_15"},
+    {"group": "3", "id": "4_1"},
+    {"group": "3", "id": "4_2"},
+    {"group": "3", "id": "4_3"},
+    {"group": "3", "id": "4_7"},
+    {"group": "3", "id": "4_12"},
+    {"group": "3", "id": "4_13"},
+    {"group": "3", "id": "4_14"},
+    {"group": "3", "id": "6_6"}
+  ],
+  "links": [
+    {"source": "1", "target": "3_0", "value": 1},
+    {"source": "3_0", "target": "1", "value": 1},
+    {"source": "3_0", "target": "4_2", "value": 1},
+    {"source": "3_0", "target": "4_3", "value": 1},
+    {"source": "3_0", "target": "4_1", "value": 1},
+    {"source": "2", "target": "3_5", "value": 1},
+    {"source": "3_5", "target": "2", "value": 1},
+    {"source": "3_5", "target": "6_6", "value": 1},
+    {"source": "3_5", "target": "4_7", "value": 1}
+  ]
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<title>法律实体检索</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content=""/>
+
+	<style type="text/css">
+		#word{
+			position: absolute;
+			z-index: 99;
+			width: 360px;
+			height: auto;
+			background-color: white;
+			border: black solid 1px;
+			display: none;
+		}
+		.click_work{
+            padding-top: 8px;
+			padding-bottom: 8px;
+            height: auto;
+			font-weight:lighter;
+			font-size: 20px;
+			cursor:pointer;/*鼠标放上变成小手*/
+		}
+		.click_work:hover{
+			color: orange;
+			background-color: gray;
+		}
+		.error{
+			color: gray;
+			cursor:pointer;/*鼠标放上变成小手*/
+		}
+	</style>
+
+	<script>
+
+
+
+        function utf16ToUtf8(s){
+            if(!s){
+                return;
+            }
+
+            var i, code, ret = [], len = s.length;
+            for(i = 0; i < len; i++){
+                code = s.charCodeAt(i);
+                if(code > 0x0 && code <= 0x7f){
+                    //单字节
+                    //UTF-16 0000 - 007F
+                    //UTF-8  0xxxxxxx
+                    ret.push(s.charAt(i));
+                }else if(code >= 0x80 && code <= 0x7ff){
+                    //双字节
+                    //UTF-16 0080 - 07FF
+                    //UTF-8  110xxxxx 10xxxxxx
+                    ret.push(
+                        //110xxxxx
+                        String.fromCharCode(0xc0 | ((code >> 6) & 0x1f)),
+                        //10xxxxxx
+                        String.fromCharCode(0x80 | (code & 0x3f))
+                    );
+                }else if(code >= 0x800 && code <= 0xffff){
+                    //三字节
+                    //UTF-16 0800 - FFFF
+                    //UTF-8  1110xxxx 10xxxxxx 10xxxxxx
+                    ret.push(
+                        //1110xxxx
+                        String.fromCharCode(0xe0 | ((code >> 12) & 0xf)),
+                        //10xxxxxx
+                        String.fromCharCode(0x80 | ((code >> 6) & 0x3f)),
+                        //10xxxxxx
+                        String.fromCharCode(0x80 | (code & 0x3f))
+                    );
+                }
+            }
+
+            return ret.join('');
+        }
+        //UTF-8转UTF-16
+        function utf8ToUtf16(s){
+            if(!s){
+                return;
+            }
+
+            var i, codes, bytes, ret = [], len = s.length;
+            for(i = 0; i < len; i++){
+                codes = [];
+                codes.push(s.charCodeAt(i));
+                if(((codes[0] >> 7) & 0xff) == 0x0){
+                    //单字节  0xxxxxxx
+                    ret.push(s.charAt(i));
+                }else if(((codes[0] >> 5) & 0xff) == 0x6){
+                    //双字节  110xxxxx 10xxxxxx
+                    codes.push(s.charCodeAt(++i));
+                    bytes = [];
+                    bytes.push(codes[0] & 0x1f);
+                    bytes.push(codes[1] & 0x3f);
+                    ret.push(String.fromCharCode((bytes[0] << 6) | bytes[1]));
+                }else if(((codes[0] >> 4) & 0xff) == 0xe){
+                    //三字节  1110xxxx 10xxxxxx 10xxxxxx
+                    codes.push(s.charCodeAt(++i));
+                    codes.push(s.charCodeAt(++i));
+                    bytes = [];
+                    bytes.push((codes[0] << 4) | ((codes[1] >> 2) & 0xf));
+                    bytes.push(((codes[1] & 0x3) << 6) | (codes[2] & 0x3f));
+                    ret.push(String.fromCharCode((bytes[0] << 8) | bytes[1]));
+                }
+            }
+            return ret.join('');
+        }
+
+
+
+
+
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+
+		function onClick(){
+            var word = ((this.innerText).split(' '))[0];
+            document.getElementById('text').value = word;
+            document.getElementById('word').style.display="none";
+        }
+
+		function keyUp(obj){
+		    //alert('keyup')
+            var keywords = obj.value;
+
+            var textfield = document.getElementById('text');
+            var wordfield = document.getElementById('word');
+
+            if (keywords=='') { wordfield.style.display="none"; return; }
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.open("GET","search?keyword=" + keywords,false);
+            xmlhttp.send();
+            var data = xmlhttp.responseText;
+            var items = eval('(' + data + ')');
+
+            wordfield.style.display="block";
+
+
+            if(items.length == 0){
+                var newdiv = document.createElement('div');
+                newdiv.className='click_work';
+                newdiv.innerText = keywords + ' not found';
+                wordfield.appendChild(newdiv);
+            }
+
+            for(i in items){
+                var newdiv = document.createElement('div');
+                newdiv.onclick = onClick;
+                newdiv.className='click_work';
+                newdiv.innerText = items[i] + ' ' + '3';
+                wordfield.appendChild(newdiv);
+            }
+        }
+	</script>
+
+	<!-- font files -->
+	<link href="http://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<!-- /font files -->
+	<!-- css files -->
+	<link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{{url_for('static',filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css" media="all" />
+	<!-- /css files -->
+	<body>
+		<div class="banner-layer">
+			<div class="logo text-center">
+				<h1>
+					<a href="index.html">
+						<span class="fa fa-hand-peace-o" aria-hidden="true"></span>法律检索</a>
+				</h1>
+			</div>
+
+			<div class="w3ls-container   text-center">
+
+				<div class="w3l-content">
+					<div class="left-grid">
+						<h2 class="text-w3layouts">全国民事判决书</h2>
+						<span class="text-w3layouts">法律实体关系图检索</span>
+					</div>
+					<div class="right-grid">
+						<p>收录超过1200万份文书，3400万个人，870万机构关系数据
+							<br>可依据时间、地点、律师信息模糊检索</p>
+						<div class="sub-form">
+							<form action="http://166.111.5.239:5000/search" method="post">
+
+								<table>
+									<tr>
+										<td style="position: relative;">
+										<input id="text" type="text" style="width:360px;height:50px" name="quest" size="30" required="" placeholder="搜索人名/公司名/律师名/判决文书件名" \
+                                               onkeyup="keyUp(this)"><span></span><button class="btn1" type="submit" value="Submit">
+										<span class="fa fa-paper-plane" aria-hidden="true"></span>
+										</button>
+										<div id="word"></div>
+										</td>
+									</tr>
+								</table>
+
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="agile-social-icons">
+					<p>Better AI and KB Help Justice On Its Way</p>
+					<ul class="social_list">
+						<li>
+							<a href="#">
+								<img src="images/a.png" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/c.png" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/d.png" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/e.png" alt="" />
+							</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="footer">
+				<p>Copyright &copy; 2018.Company name All rights reserved.</p>
+			</div>
+		</div>
+	</body>
+</html>
