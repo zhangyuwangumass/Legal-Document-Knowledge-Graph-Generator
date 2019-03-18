@@ -1,6 +1,8 @@
 # Legal-Document-Knowledge-Graph-Generator
 This is the research project at NLP Lab of Tsinghua University.<br><br>
 
+The aim of this project is to provide an efficient pipeline for generating knowledge graphs from Chinese legal documents and provide a searchable toolkit.
+
 DocumentParser is for preprocessing raw documents into clean, structurized texts. Follow the numbers in the file names and the scripts will automatically store the preprocessed data.<br><br>
 
 KnowledgeGraphBuilder is for mapping the preprocessed data into a dictionary-style directed graph of entities and relations. To speed up the building process the core component is written in C++ for efficiency, while the script is in Python for ease of use. The package will also create commonly used indexes.<br><br>
