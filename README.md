@@ -7,4 +7,4 @@ KnowledgeGraphBuilder is for mapping the preprocessed data into a dictionary-sty
 
 ResultSearcher is a web search interface. It's based on Flask, SQLite, Sphinx and d3.js. By running the Flask backend and Sphinx Chinese search engine, one can easily retrieve the entities related to a certain key word and see the relations between them with an interactive d3.js force graph.
 
-![image](https://github.com/zhangyuwangumass/Legal-Document-Knowledge-Graph-Generator/master/search_graph.pdf)
+![image](https://github.com/zhangyuwangumass/Legal-Document-Knowledge-Graph-Generator/master/search_graph.png)
