@@ -1,2 +1,3 @@
 # Legal-Document-Knowledge-Graph-Generator
-Research project at NLP Lab of Tsinghua University
+This is the research project at NLP Lab of Tsinghua University.<br><br>
+
